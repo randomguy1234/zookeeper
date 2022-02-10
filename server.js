@@ -14,6 +14,8 @@ app.use(express.urlencoded({extended: true}));
 // parse incoming JSON data
 app.use(express.json());
 
+app.use(express.static('public'));
+
 
 //function for filtering out data in the animal.json file
 function filterByQuery(query, animalsArray)
@@ -168,6 +170,31 @@ app.post('/api/animals', (req, res) =>
         res.json(animal);
     }
 });
+
+//route for the index html file
+app.get('/', (req, res) =>
+{
+    res.sendFile(path.join(__dirname, './public/index.html'));
+});
+
+//route for the animals html file
+app.get('/animals', (req, res) => 
+{
+    res.sendFile(path.join(__dirname, './public/animals.html'));
+});
+
+//route for the zookeepers html file
+app.get('/zookeepers', (req, res)=> 
+{
+    res.sendFile(path.join(__dirname, './public/zookeepers.html'));
+});
+
+//route to deal with unexpected requests, always make this route last
+app.get('*', (req, res) =>
+{
+    res.sendFile(path.join(__dirname, './public/index.html'));
+});
+
 
 //port call to browser
 app.listen(PORT, () => 
