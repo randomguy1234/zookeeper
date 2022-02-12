@@ -1,5 +1,6 @@
-const $zookeeperForm= document.querySelector('#zookeeper-form');
 const $animalForm = document.querySelector('#animal-form');
+const $zookeeperForm= document.querySelector('#zookeeper-form');
+
 
 const handleAnimalFormSubmit = event => {
   event.preventDefault();
@@ -69,14 +70,12 @@ const handleZookeeperFormSubmit= event =>
   {
     method: 'POST',
     headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json'
-             },
-
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    },
     body: JSON.stringify(zookeeperObj)
   })
-    .then(response => 
-      {
+    .then(response => {
         if (response.ok)
         {
           return response.json();
@@ -84,13 +83,11 @@ const handleZookeeperFormSubmit= event =>
 
         alert('Error: '+response.statusText);
       })
-    .then(postResponse => 
-      {
+    .then(postResponse => {
         console.log(postResponse);
         alert('Thank you for adding a zookeeper!');
       });
 };
 
-
-$zookeeperForm.addEventListener('submit', handleZookeeperFormSubmit);
 $animalForm.addEventListener('submit', handleAnimalFormSubmit);
+$zookeeperForm.addEventListener('submit', handleZookeeperFormSubmit);
