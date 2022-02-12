@@ -127,6 +127,25 @@
         "goofy"
       ],
       "id": "12"
+    },
+    {
+      "name": "Gary",
+      "species": "human",
+      "diet": "herbivore",
+      "personalityTraits": [
+        "anxious"
+      ],
+      "id": "13"
+    },
+    {
+      "name": "Duce",
+      "species": "human",
+      "diet": "carnivore",
+      "personalityTraits": [
+        "hungry",
+        "zany"
+      ],
+      "id": "14"
     }
   ]
 }
